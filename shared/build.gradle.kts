@@ -32,7 +32,7 @@ kotlin {
             dependencies {
                 implementation(compose.runtime)
                 implementation(compose.foundation)
-                implementation(compose.material)
+                implementation(compose.material3)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
             }
@@ -56,6 +56,8 @@ kotlin {
         val desktopMain by getting {
             dependencies {
                 implementation(compose.desktop.common)
+                implementation("org.jetbrains.compose.components:components-animatedimage-desktop:1.4.0") // Needed only for preview.
+
             }
         }
     }
@@ -66,6 +68,7 @@ android {
     namespace = "com.myapplication.common"
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    sourceSets["main"].res.srcDirs("src/commonMain/resources")
     sourceSets["main"].res.srcDirs("src/androidMain/res")
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 

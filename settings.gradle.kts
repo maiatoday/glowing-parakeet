@@ -34,3 +34,13 @@ dependencyResolutionManagement {
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 }
+
+buildscript {
+    repositories {
+        gradlePluginPortal()
+    }
+
+    dependencies {
+        classpath("dev.icerock.moko:resources-generator:0.23.0")
+    }
+}
